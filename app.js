@@ -1,1 +1,1 @@
-console.log("Hello, World!");
+console.log(dados[0].descricao);
