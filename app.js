@@ -12,24 +12,26 @@ function pesquisar() {
   const campoLimpo = campoPesquisa.trim();
  
   // Se a string estiver vazia, retorna apenas uma mensagem e encerra a função
-  if (campoLimpo === "") {
-    section.innerHTML = "<p>Nada foi encontrado</p>";
+  if (!campoLimpo) {
+    section.innerHTML = "<p>Nada foi encontrado. Você precisa digitar um nome de atleta ou esporte.</p>";
     return;
   };
 
   // Inicializa uma string vazia para armazenar os resultados da pesquisa
   let resultados = "";
-  // Inicializa strings vazias para armazenar os títulos e descrições do banco de dados
+  // Inicializa strings vazias para armazenar os títulos, descrições e tags do banco de dados
   let titulo = "";
   let descricao = "";
+  let tags = "";
 
   // Itera sobre cada dado na lista de dados
   for (let dado of dados) {
     // Recebe os dados do banco de dados e reduz a caixa
     titulo = dado.titulo.toLowerCase();
     descricao = dado.titulo.toLowerCase();
-    // Pesquisa se o texto digitado pelo usuário está incluso em algum título ou descrição
-    if (titulo.includes(campoLimpo) || descricao.includes(campoLimpo)) {
+    tags = dado.tags.toLowerCase();
+    // Pesquisa se o texto digitado pelo usuário está incluso em algum título ou descrição ou tag
+    if (titulo.includes(campoLimpo) || descricao.includes(campoLimpo) || tags.includes(campoLimpo)) {
       // Constrói o HTML para cada resultado que for correspondente à pesquisa, formatando os dados dinamicamente
       resultados += `
         <div class="item-resultado">
@@ -40,9 +42,12 @@ function pesquisar() {
           <a href=${dado.link} target="_blank">Mais informações</a>
         </div>
       `;
-    }
-  }
+    } else {
+      section.innerHTML = "<p>Nada foi encontrado</p>";
+      return;
+    };
+  };
 
   // Atribui o HTML gerado à seção de resultados
   section.innerHTML = resultados;
-}
+};
