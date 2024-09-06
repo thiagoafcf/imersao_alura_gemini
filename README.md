@@ -1,4 +1,4 @@
-# Projeto: Busca de Atletas Olímpicas Brasileiras
+# Projeto: Criação de aplicação web de busca
 
 ## Descrição
 
@@ -56,9 +56,5 @@ Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para ma
 
 * **Thiago Augusto Ferreira** - Desenvolvedor
 * **Contato:** thiago.afcf@gmail.com
-
-**Agradecimentos:**
-
-Agradeço a todos que contribuíram para este projeto.
 
 ---
