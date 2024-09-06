@@ -14,9 +14,8 @@ Este projeto web foi desenvolvido durante a Imersão Alura com Google Gemini, oc
 
 1. **Clone o repositório:**
    ```bash
-   git clone [URL inválido removido]
+   git clone https://github.com/thiagoafcf/imersao_alura_gemini.git
    ```
-   Substitua `seu_usuario` e `seu_repositorio` pelo nome do seu perfil e do repositório no GitHub.
 
 2. **Abra o projeto em um editor de código:**
    Recomendamos utilizar o Visual Studio Code.
