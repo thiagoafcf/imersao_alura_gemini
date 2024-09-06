@@ -42,7 +42,7 @@ function pesquisar() {
           <a href=${dado.link} target="_blank">Mais informações</a>
         </div>
       `;
-    } 
+    };
   };
 
   // Se a pesquisa não retornou resultados
