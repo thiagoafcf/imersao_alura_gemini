@@ -42,10 +42,12 @@ function pesquisar() {
           <a href=${dado.link} target="_blank">Mais informações</a>
         </div>
       `;
-    } else {
-      section.innerHTML = "<p>Nada foi encontrado</p>";
-      return;
-    };
+    } 
+  };
+
+  // Se a pesquisa não retornou resultados
+  if (!resultados){
+    resultados = "<p>Nada foi encontrado.</p>"
   };
 
   // Atribui o HTML gerado à seção de resultados
