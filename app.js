@@ -1,13 +1,36 @@
 function pesquisar() {
-    // Obtém a seção onde os resultados serão exibidos
-    let section = document.getElementById("resultados-pesquisa");
+  // Obtém a seção onde os resultados serão exibidos
+  let section = document.getElementById("resultados-pesquisa");
+
+  // Recebe o texto escrito pelo usuário
+  let campoPesquisa = document.getElementById("campo-pesquisa").value;
+
+  // Reduz a caixa de todo o texto escrito pelo usuário
+  campoPesquisa = campoPesquisa.toLowerCase();
   
-    // Inicializa uma string vazia para armazenar os resultados da pesquisa
-    let resultados = "";
-  
-    // Itera sobre cada dado na lista de dados
-    for (let dado of dados) {
-      // Constrói o HTML para cada resultado, formatando os dados dinamicamente
+  // Limpa os espaços vazios no início ou no final campo de pesquisa
+  const campoLimpo = campoPesquisa.trim();
+ 
+  // Se a string estiver vazia, retorna apenas uma mensagem e encerra a função
+  if (campoLimpo === "") {
+    section.innerHTML = "<p>Nada foi encontrado</p>";
+    return;
+  };
+
+  // Inicializa uma string vazia para armazenar os resultados da pesquisa
+  let resultados = "";
+  // Inicializa strings vazias para armazenar os títulos e descrições do banco de dados
+  let titulo = "";
+  let descricao = "";
+
+  // Itera sobre cada dado na lista de dados
+  for (let dado of dados) {
+    // Recebe os dados do banco de dados e reduz a caixa
+    titulo = dado.titulo.toLowerCase();
+    descricao = dado.titulo.toLowerCase();
+    // Pesquisa se o texto digitado pelo usuário está incluso em algum título ou descrição
+    if (titulo.includes(campoLimpo) || descricao.includes(campoLimpo)) {
+      // Constrói o HTML para cada resultado que for correspondente à pesquisa, formatando os dados dinamicamente
       resultados += `
         <div class="item-resultado">
           <h2>
@@ -18,7 +41,8 @@ function pesquisar() {
         </div>
       `;
     }
-  
-    // Atribui o HTML gerado à seção de resultados
-    section.innerHTML = resultados;
   }
+
+  // Atribui o HTML gerado à seção de resultados
+  section.innerHTML = resultados;
+}
