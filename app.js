@@ -3,8 +3,10 @@
 let section = document.getElementById("resultados-pesquisa");
 console.log(section);
 
+let resultados = ""
+
 for (let dado of dados){
-    section.innerHTML += `
+    resultados += `
         <div class="item-resultado">
             <h2>
                 <a href="#" target="_blank">${dado.titulo}</a>
@@ -13,4 +15,6 @@ for (let dado of dados){
             <a href=${dado.link} target="_blank">Mais informações</a>
         </div>
     `
-}
+};
+
+section.innerHTML = resultados
